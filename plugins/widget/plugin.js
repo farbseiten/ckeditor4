@@ -3221,7 +3221,7 @@
 
 		// When more than one widget is selected, we must save selection to restore it
 		// after destroying copybin (#3138).
-		if ( !focused && !isCut ) {
+		if ( !focused ) {
 			bookmarks = editor.getSelection().createBookmarks( true );
 		}
 
@@ -3301,9 +3301,8 @@
 			editor.fire( 'unlockSnapshot' );
 
 			// Prevent cutting in read-only editor (#1570).
-			if ( isCut && focused && !editor.readOnly ) {
-				editor.widgets.del( focused );
-				editor.fire( 'saveSnapshot' );
+			if ( isCut && !editor.readOnly ) {
+				handleCut();
 			}
 		}, 100 ); // Use 100ms, so Chrome (@Mac) will be able to grab the content.
 
@@ -3319,6 +3318,16 @@
 			}, null, null, -1 );
 
 			return editor.dataProcessor.toDataFormat( selectedHtml );
+		}
+
+		function handleCut() {
+			if ( focused ) {
+				editor.widgets.del( focused );
+			} else {
+				editor.extractSelectedHtml();
+			}
+
+			editor.fire( 'saveSnapshot' );
 		}
 	}
 
@@ -3667,7 +3676,7 @@
 				widget.edit();
 			// CTRL+C or CTRL+X.
 			} else if ( keyCode == CKEDITOR.CTRL + 67 || keyCode == CKEDITOR.CTRL + 88 ) {
-				copyWidgets( widget.editor, keyCode == CKEDITOR.CTRL + 88 );
+				// copyWidgets( widget.editor, keyCode == CKEDITOR.CTRL + 88 );
 				return; // Do not preventDefault.
 			// Pass chosen keystrokes to other plugins or default fake sel handlers.
 			// Pass all CTRL/ALT keystrokes.
