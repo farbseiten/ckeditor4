@@ -3270,6 +3270,7 @@
 					docElement = editor.document.getDocumentElement().$,
 					range = editor.createRange(),
 					that = this,
+					waitForContent = window.requestAnimationFrame ? requestAnimationFrame : setTimeout,
 					listener1,
 					listener2,
 					scrollTop;
@@ -3303,7 +3304,7 @@
 				}
 
 				return new CKEDITOR.tools.promise( function( resolve ) {
-					setTimeout( function() {
+					waitForContent( function() {
 						if ( that.beforeDestroy ) {
 							that.beforeDestroy();
 						}
@@ -3320,7 +3321,7 @@
 						}
 
 						resolve();
-					}, 100 ); // Use 100ms, so Chrome (@Mac) will be able to grab the content.
+					} );
 				} );
 			}
 		},
