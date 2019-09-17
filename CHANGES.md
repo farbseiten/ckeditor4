@@ -12,6 +12,8 @@ New Features:
     * [#3118](https://github.com/ckeditor/ckeditor-dev/issues/3118): Selecting a paragraph with triple-click and applying heading applies heading only to selected paragraph.
     * [#3161](https://github.com/ckeditor/ckeditor-dev/issues/3161): Double click on a `span` element containing one word only creates correct selection including clicked `span` only.
 * [#3359](https://github.com/ckeditor/ckeditor-dev/issues/3359): Improved [dialog](https://ckeditor.com/cke4/addon/dialog) positioning and behaviour when browser window is resized, dialog resized or moved.
+* [#2227](https://github.com/ckeditor/ckeditor-dev/issues/2227): Added [`config.linkDefaultProtocol`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkDefaultProtocol) configuration option that allows setting default URL protocol for [Link](https://ckeditor.com/cke4/addon/link) plugin dialog.
+* [#3240](https://github.com/ckeditor/ckeditor-dev/issues/3240): Extended [`CKEDITOR.plugins.widget#mask`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget.html#property-mask) property to allow masking only specified part of a [widget](https://ckeditor.com/cke4/addon/widget).
 
 Fixed Issues:
 
@@ -35,6 +37,9 @@ Fixed Issues:
 * [#453](https://github.com/ckeditor/ckeditor-dev/issues/453): Fixed: [Link](https://ckeditor.com/cke4/addon/link) dialog has invalid width when editor is maximized and browser window resized.
 * [#2138](https://github.com/ckeditor/ckeditor-dev/issues/2138): Fixed: Email address containing question mark is mishandled by [Link](https://ckeditor.com/cke4/addon/link) plugin.
 * [#917](https://github.com/ckeditor/ckeditor-dev/issues/917): Fixed: [`CKEDITOR.plugins.addExternal`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins.html#method-addExternal) method does not load a plugin if the path does not contain slash at the end.
+* [#14613](https://dev.ckeditor.com/ticket/14613): Fixed: Race condition when loading plugins for already destroyed editor instance throws an error.
+* [#2257](https://github.com/ckeditor/ckeditor-dev/issues/2257): Fixed: Editor throws an exception when destroyed shortly after it was created.
+* [#3115](https://github.com/ckeditor/ckeditor-dev/issues/3115): Fixed: Destroying editor during initialization throws an error.
 
 API Changes:
 
@@ -46,6 +51,7 @@ API Changes:
 * [#3247](https://github.com/ckeditor/ckeditor-dev/issues/3247): Extended [`CKEDITOR.tools.bind()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-bind) method to accept arguments for bound functions.
 * [#3326](https://github.com/ckeditor/ckeditor-dev/issues/3326): Added [`CKEDITOR.dom.text#isEmpty()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_dom_text.html#method-isEmpty) method.
 * [#2423](https://github.com/ckeditor/ckeditor-dev/issues/2423): Added the [`CKEDITOR.plugins.dialog.getModel`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_dialog.html#method-getModel) and [`CKEDITOR.plugins.dialog.getMode`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_dialog.html#method-getMode) methods with their [`CKEDITOR.plugin.definition`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_dialog_definition.html) counterparts allowing to get dialog subject of change.
+* [#3124](https://github.com/ckeditor/ckeditor-dev/issues/3124): Added the [`CKEDITOR.dom.element#isDetached()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_dom_element.html#method-isDetached) method.
 
 ## CKEditor 4.12.1
 
