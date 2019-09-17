@@ -51,7 +51,7 @@ CKEDITOR.lang[ 'de-ch' ] = {
 		langDirRtl: 'Rechts nach Links (RTL)',
 		langCode: 'Sprachcode',
 		longDescr: 'Langbeschreibungs-URL',
-		cssClass: 'Formatvorlagenklassen',
+		cssClass: 'Stylesheet Klasse',
 		advisoryTitle: 'Titel Beschreibung',
 		cssStyle: 'Stil',
 		ok: 'OK',

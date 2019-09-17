@@ -263,6 +263,41 @@
 					}
 				},
 				{
+					id: 'internalLink',
+					type: 'select',
+					label: linkLang.internalLink,
+					items: [],
+					onLoad: function (api) {
+						widget = this;
+						$.ajax({
+							type: 'GET',
+							url: '/pages/get_page_links',
+							dataType: 'json',
+							success: function (data, textStatus, jqXHR) {
+								widget.add('', '');
+								for (var i = 0; i < data.length; i++) {
+									widget.add(data[i], data[i]);
+								}
+							},
+							error: function (jqXHR, textStatus, errorThrown) {
+								console.log('ajax error ' + textStatus + ' ' + errorThrown);
+							}
+						});
+					},
+					onChange: function() {
+						var lang = '';
+						try {
+							lang = window.location.href.split('/')[5];
+						} catch(error) {
+							//do nothing just catch the error
+						}
+						if(lang !== '') {
+							lang = '/' + lang
+						}
+						this.getDialog().getContentElement('info', 'url').setValue(lang + this.getValue())
+					}
+				},
+				{
 					type: 'vbox',
 					id: 'urlOptions',
 					children: [ {

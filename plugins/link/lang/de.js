@@ -65,6 +65,7 @@ CKEDITOR.plugins.setLang( 'link', 'de', {
 	toPhone: 'Phone', // MISSING
 	toolbar: 'Link einfügen/editieren',
 	type: 'Link-Typ',
+	internalLink: 'Interner Link',
 	unlink: 'Link entfernen',
 	upload: 'Hochladen'
 } );
