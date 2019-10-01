@@ -286,15 +286,19 @@
 					},
 					onChange: function() {
 						var lang = '';
-						try {
-							lang = window.location.href.split('/')[5];
-						} catch(error) {
-							//do nothing just catch the error
+						if (window.location.href.indexOf('/sections/') !== -1) {
+							//do nothing
+						} else {
+							try {
+								lang = window.location.href.split('/')[5];
+							} catch(error) {
+								//do nothing just catch the error
+							}
+							if(lang !== '') {
+								lang = '/' + lang;
+							}
 						}
-						if(lang !== '') {
-							lang = '/' + lang
-						}
-						this.getDialog().getContentElement('info', 'url').setValue(lang + this.getValue())
+						this.getDialog().getContentElement('info', 'url').setValue(lang + this.getValue());
 					}
 				},
 				{
