@@ -266,7 +266,8 @@
 					id: 'internalLink',
 					type: 'select',
 					label: linkLang.internalLink,
-					items: [],
+					items: [['Einträge werden geladen...']],
+					'default': 'Einträge werden geladen...',
 					onLoad: function (api) {
 						widget = this;
 						$.ajax({
@@ -274,7 +275,9 @@
 							url: '/pages/get_page_links',
 							dataType: 'json',
 							success: function (data, textStatus, jqXHR) {
+								widget.remove(0);
 								widget.add('', '');
+								widget.setValue('');
 								for (var i = 0; i < data.length; i++) {
 									widget.add(data[i], data[i]);
 								}
