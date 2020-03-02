@@ -275,12 +275,14 @@
 							url: '/pages/get_page_links',
 							dataType: 'json',
 							success: function (data, textStatus, jqXHR) {
+								old_val = widget.getDialog().getContentElement('info', 'url').getValue();
 								widget.remove(0);
 								widget.add('', '');
 								widget.setValue('');
 								for (var i = 0; i < data.length; i++) {
 									widget.add(data[i], data[i]);
 								}
+								widget.getDialog().getContentElement('info', 'url').setValue(old_val);
 							},
 							error: function (jqXHR, textStatus, errorThrown) {
 								console.log('ajax error ' + textStatus + ' ' + errorThrown);
